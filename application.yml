@@ -1,2 +1,2 @@
 tspgw:
-  long-jms-timeout: ${internal.timeout.ms}
+  long-jms-timeout: 10.5
