@@ -168,53 +168,14 @@ db-token-search:
       name: Samsung Pay
     - id: 06110030273
       name: Apple Pay
+
 #----------------------------------------------------------------------------
-mdes.async.authorizeservice:
-  retry-after-seconds: 5
-  max-time-to-serve: 4700 # MDES specifies expected response time of 5 sec
-  max-age-for-valid-events: 600
-  core-pool-size: 10
-  max-pool-size: 100
-  queue-capacity: 10
-
-vts.async.approveprovisioning:
-  retry-after-seconds: 5
-  max-time-to-serve: 1200 # VTS specifies expected response time of 1.5 sec
-  max-age-for-valid-events: 600
-  core-pool-size: 10
-  max-pool-size: 100
-  queue-capacity: 10
-
-eftpos.async.provisioning:
-  retry-after-seconds: 5
-  max-time-to-serve: 5000 # EFTPOS expected response time of 5.2 sec
-  max-age-for-valid-events: 600
-  core-pool-size: 10
-  max-pool-size: 100
-  queue-capacity: 10
-
-kms:
-  jms-timeout: ${internal.timeout.ms}
-  on-timeout-retry-count: 2
-
-masterdata:
-  delete-kms-keys: false
-  auth:
-    enabled: true
-#   public-key: provided externally as base64 encoded
-
 tspgw:
   jms-timeout: ${internal.timeout.ms}
   callback-response-queue-name: callbackQueue-${spring.application.instance_id}
   long-jms-timeout: ${internal.timeout.ms}
 
-token.cleanup:
-  enabled: true
-  fixed-delay: 1d
-  initial-delay: 15m
-  max-age-after-deactivation: 180d
-  max-deletions-batch-size: 100
-#------------------------------------------------------------------------------
+#----------------------------------------------------------------------------
 # Transaction Definition
 transaction.definition:
   propagation-behavior: 0
