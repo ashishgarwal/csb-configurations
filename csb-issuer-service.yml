@@ -1,0 +1,5 @@
+tspgw:
+  jms-timeout: ${internal.timeout.ms}
+  callback-response-queue-name: callbackQueue-${spring.application.instance_id}
+  long-jms-timeout: ${internal.timeout.ms}
+#----------------------------------------------------------------------------
