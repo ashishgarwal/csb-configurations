@@ -28,7 +28,6 @@ server:
       rename-on-rotate: false
       pattern: '%a "%{X-Forwarded-For}i" %u %t "%r" %s %b %D "%{User-Agent}i"'
 
-spring.application.name: ${project.artifactId}
 spring.jersey.application-path: /app
 #---------------------------------------------
 spring.jms:
