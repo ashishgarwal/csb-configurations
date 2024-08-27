@@ -183,100 +183,11 @@ csb.db:
   access:
     user: <BROKER_ACCESS_USER>
     pass: <BROKER_ACCESS_PASS>
-
 #----------------------------------------------------------------------------
-spring.datasource:
-  username: ${csb.db.access.user}
-  password: ${csb.db.access.pass}
-  url: ${csb.db.app.url}
-  ucp:
-    connection-wait-timeout: 3
-    connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
-    inactive-connection-timeout: 60
-    initial-pool-size: 10
-    min-pool-size: 10
-    max-pool-size: 200
-    validate-connection-on-borrow: true
-    connection-properties:
-
-spring.flyway:
-  enabled: true
-  locations: classpath:broker/db/migration
-  csb:
-    access-user: ${csb.db.access.user}
-    admin-user: ${csb.db.admin.user}
-    datasource:
-      username: ${csb.db.admin.user}
-      password: ${csb.db.admin.pass}
-      url: ${csb.db.flyway.url}
-      ucp:
-        connection-wait-timeout: 3
-        initial-pool-size: 1
-        max-pool-size: 5
-        min-pool-size: 1
-        connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
-        inactive-connection-timeout: 60
-        validate-connection-on-borrow: true
-        connection-properties:
-
-# this is the latest and greatest
-spring.jpa.database-platform: org.hibernate.dialect.OracleDialect
-
-spring.activemq:
-  # the broker-url is defined externally
-  broker-url: <CLIENT_BROKER_URL_AMQ>
-  packages.trust-all: true
-  pool:
-    enabled: true
-    expiry-timeout: 0 #ms
-    idle-timeout: 60000 #ms -> 60s
-    max-connections: 50
-
-mdes.async.authorizeservice:
-  retry-after-seconds: 5
-  max-time-to-serve: 4700 # MDES specifies expected response time of 5 sec
-  max-age-for-valid-events: 600
-  core-pool-size: 10
-  max-pool-size: 100
-  queue-capacity: 10
-
-vts.async.approveprovisioning:
-  retry-after-seconds: 5
-  max-time-to-serve: 1200 # VTS specifies expected response time of 1.5 sec
-  max-age-for-valid-events: 600
-  core-pool-size: 10
-  max-pool-size: 100
-  queue-capacity: 10
-
-eftpos.async.provisioning:
-  retry-after-seconds: 5
-  max-time-to-serve: 5000 # EFTPOS expected response time of 5.2 sec
-  max-age-for-valid-events: 600
-  core-pool-size: 10
-  max-pool-size: 100
-  queue-capacity: 10
-
-kms:
-  jms-timeout: ${internal.timeout.ms}
-  on-timeout-retry-count: 2
-
-masterdata:
-  delete-kms-keys: false
-  auth:
-    enabled: true
-#   public-key: provided externally as base64 encoded
-
 tspgw:
   jms-timeout: ${internal.timeout.ms}
   callback-response-queue-name: callbackQueue-${spring.application.instance_id}
   long-jms-timeout: ${internal.timeout.ms}
-
-token.cleanup:
-  enabled: true
-  fixed-delay: 1d
-  initial-delay: 15m
-  max-age-after-deactivation: 180d
-  max-deletions-batch-size: 100
 #----------------------------------------------------------------------------
 # Transaction Definition
 transaction.definition:
