@@ -171,19 +171,6 @@ db-token-search:
       name: Apple Pay
 
 #----------------------------------------------------------------------------
-# db stuff : this needs to be defined in the external application.yml/application.properties
-csb.db:
-  app:
-    url: <BROKER_APP_JDBC_URL>
-  flyway:
-    url: <BROKER_FLYWAY_JDBC_URL>
-  admin:
-    user: <BROKER_ADMIN_USER>
-    pass: <BROKER_ADMIN_PASS>
-  access:
-    user: <BROKER_ACCESS_USER>
-    pass: <BROKER_ACCESS_PASS>
-#----------------------------------------------------------------------------
 tspgw:
   jms-timeout: ${internal.timeout.ms}
   callback-response-queue-name: callbackQueue-${spring.application.instance_id}
