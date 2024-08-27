@@ -169,7 +169,6 @@ db-token-search:
     - id: 06110030273
       name: Apple Pay
 #----------------------------------------------------------------------------
-
 mdes.async.authorizeservice:
   retry-after-seconds: 5
   max-time-to-serve: 4700 # MDES specifies expected response time of 5 sec
@@ -216,20 +215,6 @@ token.cleanup:
   max-age-after-deactivation: 180d
   max-deletions-batch-size: 100
 #------------------------------------------------------------------------------
-# db stuff : this needs to be defined in the external application.yml/application.properties
-csb.db:
-  app:
-    url: <BROKER_APP_JDBC_URL>
-  flyway:
-    url: <BROKER_FLYWAY_JDBC_URL>
-  admin:
-    user: <BROKER_ADMIN_USER>
-    pass: <BROKER_ADMIN_PASS>
-  access:
-    user: <BROKER_ACCESS_USER>
-    pass: <BROKER_ACCESS_PASS>
-
-#----------------------------------------------------------------------------
 # Transaction Definition
 transaction.definition:
   propagation-behavior: 0
