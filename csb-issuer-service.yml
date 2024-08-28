@@ -240,12 +240,6 @@ kms:
   jms-timeout: ${internal.timeout.ms}
   on-timeout-retry-count: 2
 
-masterdata:
-  delete-kms-keys: false
-  auth:
-    enabled: true
-#   public-key: provided externally as base64 encoded
-
 token.cleanup:
   enabled: true
   fixed-delay: 1d
