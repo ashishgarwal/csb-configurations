@@ -170,6 +170,43 @@ db-token-search:
       name: Apple Pay
 
 #----------------------------------------------------------------------------
+spring.datasource:
+  username: ${csb.db.access.user}
+  password: ${csb.db.access.pass}
+  url: ${csb.db.app.url}
+  ucp:
+    connection-wait-timeout: 3
+    connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
+    inactive-connection-timeout: 60
+    initial-pool-size: 10
+    min-pool-size: 10
+    max-pool-size: 200
+    validate-connection-on-borrow: true
+    connection-properties:
+
+spring.flyway:
+  enabled: true
+  locations: classpath:broker/db/migration
+  csb:
+    access-user: ${csb.db.access.user}
+    admin-user: ${csb.db.admin.user}
+    datasource:
+      username: ${csb.db.admin.user}
+      password: ${csb.db.admin.pass}
+      url: ${csb.db.flyway.url}
+      ucp:
+        connection-wait-timeout: 3
+        initial-pool-size: 1
+        max-pool-size: 5
+        min-pool-size: 1
+        connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
+        inactive-connection-timeout: 60
+        validate-connection-on-borrow: true
+        connection-properties:
+
+# this is the latest and greatest
+spring.jpa.database-platform: org.hibernate.dialect.OracleDialect
+#----------------------------------------------------------------------------
 tspgw:
   jms-timeout: ${internal.timeout.ms}
   callback-response-queue-name: callbackQueue-${spring.application.instance_id}
